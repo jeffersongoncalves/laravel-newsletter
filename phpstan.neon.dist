@@ -1,0 +1,28 @@
+includes:
+    - vendor/larastan/larastan/extension.neon
+
+parameters:
+    paths:
+        - src
+
+    level: 5
+
+    tmpDir: build/phpstan
+
+    checkOctaneCompatibility: true
+
+    checkModelProperties: false
+
+    ignoreErrors:
+        -
+            identifier: argument.type
+            path: src/Http/Controllers/SubscriptionController.php
+        -
+            identifier: argument.type
+            path: src/Http/Controllers/WebviewController.php
+        -
+            # False positive: Collection's TValue is invariant, so PHPStan refuses
+            # to match the return type against itself once the array shape has
+            # passed through map()/filter(), even though both sides are identical.
+            identifier: return.type
+            path: src/Actions/FindBrokenNewsletterLinksAction.php

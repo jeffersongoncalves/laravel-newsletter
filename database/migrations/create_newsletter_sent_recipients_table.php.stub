@@ -1,0 +1,29 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up(): void
+    {
+        Schema::create('newsletter_sent_recipients', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('newsletter_id')->constrained('newsletters')->cascadeOnDelete();
+            $table->string('email');
+            $table->string('status');
+            $table->text('error_message')->nullable();
+            $table->dateTime('sent_at')->nullable();
+            $table->timestamps();
+
+            $table->index(['newsletter_id', 'email']);
+            $table->index(['newsletter_id', 'status']);
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::dropIfExists('newsletter_sent_recipients');
+    }
+};

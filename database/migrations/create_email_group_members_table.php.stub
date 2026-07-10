@@ -1,0 +1,28 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up(): void
+    {
+        Schema::create('email_group_members', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('email_group_id')->constrained('email_groups')->cascadeOnDelete();
+            $table->string('email');
+            $table->boolean('unsubscribed')->default(false);
+            $table->dateTime('unsubscribed_at')->nullable();
+            $table->dateTime('confirmed_at')->nullable();
+            $table->timestamps();
+
+            $table->unique(['email_group_id', 'email']);
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::dropIfExists('email_group_members');
+    }
+};

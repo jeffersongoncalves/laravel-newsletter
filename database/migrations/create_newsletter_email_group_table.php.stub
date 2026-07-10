@@ -1,0 +1,23 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up(): void
+    {
+        Schema::create('newsletter_email_group', function (Blueprint $table) {
+            $table->foreignId('newsletter_id')->constrained('newsletters')->cascadeOnDelete();
+            $table->foreignId('email_group_id')->constrained('email_groups')->cascadeOnDelete();
+
+            $table->primary(['newsletter_id', 'email_group_id']);
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::dropIfExists('newsletter_email_group');
+    }
+};
