@@ -17,7 +17,7 @@ Compose, schedule and send double opt-in email newsletters with open/click track
 ## Requirements
 
 - PHP 8.2+
-- Laravel 11, 12, or 13
+- Laravel 12 or 13
 
 ## Installation
 

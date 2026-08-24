@@ -30,7 +30,7 @@ Run all three (`test`, `analyse`, `format`) before considering a change done —
 - **Views have no Filament/panel dependency.** `subscribe`, `confirmed`, `unsubscribed` and the shared `layout` Blade views are plain Blade + Tailwind (via CDN) so the package works in any Laravel app. Keep them dependency-free and publishable (`vendor:publish --tag=newsletter-views`).
 - **Double opt-in is not optional.** `EmailGroupMember.confirmed_at` stays null until the signed confirm link is clicked; `SendNewsletterAction`/`ResolveNewsletterRecipientsAction` must only ever resolve confirmed, non-unsubscribed members. Don't add a path that sends to an unconfirmed member.
 - **Tracking is a pure feature flag** (`newsletter.tracking_enabled`) — a complete no-op when off. `InjectNewsletterTrackingAction` runs automatically whenever `NewsletterMail` is built; don't special-case call sites.
-- **PHP 8.2+, Laravel 11/12/13.** Don't add code that only works on one supported major without a compatibility check.
+- **PHP 8.2+, Laravel 12/13.** Don't add code that only works on one supported major without a compatibility check.
 
 ## Testing notes
 
