@@ -2,6 +2,9 @@
 
 return [
     'subscribed' => 'Thank you! Please check your inbox to confirm your subscription.',
+    'subscribe_title' => 'Subscribe to our newsletter',
+    'subscribe_email_label' => 'Email address',
+    'subscribe_button' => 'Subscribe',
     'confirm_subject' => 'Confirm your subscription',
     'confirm_heading' => 'Confirm your subscription',
     'confirm_body' => 'Please confirm that you would like to receive emails from us by clicking the button below.',

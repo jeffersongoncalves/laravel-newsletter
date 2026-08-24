@@ -13,6 +13,11 @@ use JeffersonGoncalves\Newsletter\Models\EmailGroupMember;
 
 class SubscriptionController extends Controller
 {
+    public function showForm(): View
+    {
+        return view('newsletter::subscribe');
+    }
+
     public function subscribe(Request $request, SubscribeToEmailGroupAction $action): RedirectResponse
     {
         $data = $request->validate([

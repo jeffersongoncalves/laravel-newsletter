@@ -90,6 +90,10 @@ $broken = app(FindBrokenNewsletterLinksAction::class)->handle($newsletter);
 // Collection of ['url' => ..., 'status' => int|null, 'error' => string|null]
 ```
 
+### Public Routes
+
+`SubscriptionController` exposes double opt-in routes under `config('newsletter.route_prefix')` (default `newsletter`): `GET subscribe` (Blade form, gated by `config('newsletter.subscribe_form_enabled')`), `POST subscribe`, `GET confirm/{emailGroupMember}` (signed) and `GET unsubscribe/{emailGroupMember}` (signed). The subscribe/confirmed/unsubscribed views are plain Blade with Tailwind via CDN — no Filament dependency — and publishable with `php artisan vendor:publish --tag=newsletter-views` for custom styling.
+
 ## Troubleshooting
 
 ### Error: "This newsletter has already been sent."

@@ -70,6 +70,9 @@ return [
 
     // Tag outgoing links with UTM parameters and inject the open-tracking pixel
     'tracking_enabled' => true,
+
+    // Registers a simple Tailwind-styled subscribe page at {route_prefix}/subscribe (GET)
+    'subscribe_form_enabled' => true,
 ];
 ```
 
@@ -115,6 +118,18 @@ $member = Newsletter::subscribe('subscriber@example.com', 'Website');
 ```
 
 A confirmation email with a signed link is queued automatically. Once the subscriber clicks it (`GET /newsletter/confirm/{emailGroupMember}`), `confirmed_at` is set. Unsubscribing works the same way via `GET /newsletter/unsubscribe/{emailGroupMember}`.
+
+### Subscribe Page
+
+A minimal, Tailwind-styled (via CDN) subscribe form ships out of the box at `GET /newsletter/subscribe`, posting to the `POST /newsletter/subscribe` endpoint above. It doesn't depend on Filament or any panel — plain Blade, so it works in any Laravel app.
+
+Disable it with `NEWSLETTER_SUBSCRIBE_FORM_ENABLED=false` if your app ships its own form and only needs the POST endpoint. Customize the markup by publishing the views:
+
+```bash
+php artisan vendor:publish --tag=newsletter-views
+```
+
+This publishes `subscribe.blade.php`, `confirmed.blade.php`, `unsubscribed.blade.php` and the shared `layout.blade.php`.
 
 ### Sending
 

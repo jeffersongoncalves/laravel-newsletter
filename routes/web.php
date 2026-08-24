@@ -10,6 +10,11 @@ Route::prefix(config('newsletter.route_prefix', 'newsletter'))
     ->name('newsletter.')
     ->middleware(SubstituteBindings::class)
     ->group(function (): void {
+        if (config('newsletter.subscribe_form_enabled', true)) {
+            Route::get('subscribe', [SubscriptionController::class, 'showForm'])
+                ->name('subscribe.form');
+        }
+
         Route::post('subscribe', [SubscriptionController::class, 'subscribe'])
             ->middleware('throttle:6,1')
             ->name('subscribe');

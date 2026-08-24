@@ -28,6 +28,20 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Subscribe Form
+    |--------------------------------------------------------------------------
+    |
+    | When enabled, the package registers a simple Tailwind-styled subscribe
+    | page at `{route_prefix}/subscribe` (GET). Disable it if your app ships
+    | its own subscribe form and only needs the POST endpoint. Publish the
+    | package views to customize the markup.
+    |
+    */
+
+    'subscribe_form_enabled' => env('NEWSLETTER_SUBSCRIBE_FORM_ENABLED', true),
+
+    /*
+    |--------------------------------------------------------------------------
     | Scheduled Sending
     |--------------------------------------------------------------------------
     |
