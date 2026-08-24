@@ -30,6 +30,10 @@
                     "route": "monthly-update",
                     "published": true
                 }
+            },
+            {
+                "model": "JeffersonGoncalves\\Newsletter\\Models\\EmailGroupMember",
+                "count": 1
             }
         ]
     },
@@ -41,6 +45,18 @@
         {
             "name": "webview",
             "url": "/newsletter/monthly-update"
+        },
+        {
+            "name": "confirmed",
+            "route": "newsletter.confirm",
+            "routeParams": { "emailGroupMember": 1 },
+            "signed": true
+        },
+        {
+            "name": "unsubscribed",
+            "route": "newsletter.unsubscribe",
+            "routeParams": { "emailGroupMember": 1 },
+            "signed": true
         }
     ],
     "output": {
