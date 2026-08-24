@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## 2.0.1 - 2026-08-24
+
+### Fixed
+
+- Public routes (subscribe/confirm/unsubscribe/track/webview) weren't registered under Laravel's `web` middleware group, so session, CSRF, cookies and `$errors` sharing never ran. The new subscribe form (2.0.0) threw `ErrorException: Undefined variable $errors` on every request. Fixes it for anyone who updated to 2.0.0.
+
 ## 2.0.0 - 2026-08-24
 
 ### Breaking
