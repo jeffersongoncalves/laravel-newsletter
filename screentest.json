@@ -1,0 +1,59 @@
+{
+    "plugin": {
+        "name": "Laravel Newsletter",
+        "package": "jeffersongoncalves/laravel-newsletter"
+    },
+    "filakit": {
+        "kit": "filakitphp/basev5"
+    },
+    "install": {
+        "extra_packages": [],
+        "plugins": [],
+        "publish": ["newsletter-migrations"],
+        "post_install_commands": [
+            "migrate"
+        ],
+        "env": []
+    },
+    "seed": {
+        "auto_detect": true,
+        "user": {
+            "email": "admin@example.com",
+            "password": "password",
+            "name": "Admin User"
+        },
+        "models": [
+            {
+                "model": "JeffersonGoncalves\\Newsletter\\Models\\Newsletter",
+                "count": 1,
+                "attributes": {
+                    "route": "monthly-update",
+                    "published": true
+                }
+            }
+        ]
+    },
+    "screenshots": [
+        {
+            "name": "subscribe",
+            "url": "/newsletter/subscribe"
+        },
+        {
+            "name": "webview",
+            "url": "/newsletter/monthly-update"
+        }
+    ],
+    "output": {
+        "directory": "screenshots",
+        "themes": [
+            "light",
+            "dark"
+        ],
+        "format": "png"
+    },
+    "readme": {
+        "update": false,
+        "section_marker": "<!-- SCREENSHOTS -->",
+        "template": "table"
+    }
+}
