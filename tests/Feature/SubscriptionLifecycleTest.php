@@ -52,3 +52,14 @@ it('rejects an expired confirmation link', function () {
 
     expect($member->fresh()->confirmed_at)->toBeNull();
 });
+
+it('renders the subscribe form page', function () {
+    $this->get(route('newsletter.subscribe.form'))->assertOk();
+});
+
+it('renders the subscribe form again with validation errors on invalid input', function () {
+    $this->from(route('newsletter.subscribe.form'))
+        ->post(route('newsletter.subscribe'), ['email' => 'not-an-email'])
+        ->assertRedirect(route('newsletter.subscribe.form'))
+        ->assertSessionHasErrors('email');
+});
