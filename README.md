@@ -1,6 +1,6 @@
 <div class="filament-hidden">
 
-![Laravel Newsletter](https://raw.githubusercontent.com/jeffersongoncalves/laravel-newsletter/master/art/jeffersongoncalves-laravel-newsletter.png)
+![Laravel Newsletter](https://raw.githubusercontent.com/jeffersongoncalves/laravel-newsletter/main/art/jeffersongoncalves-laravel-newsletter.png)
 
 </div>
 
@@ -9,8 +9,8 @@
 [![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-support-FFDD00?style=flat-square&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/jeffersongoncalves)
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/jeffersongoncalves/laravel-newsletter.svg?style=flat-square)](https://packagist.org/packages/jeffersongoncalves/laravel-newsletter)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/jeffersongoncalves/laravel-newsletter/tests.yml?branch=master&label=tests&style=flat-square)](https://github.com/jeffersongoncalves/laravel-newsletter/actions?query=workflow%3ATests+branch%3Amaster)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/jeffersongoncalves/laravel-newsletter/fix-php-code-style-issues.yml?branch=master&label=code%20style&style=flat-square)](https://github.com/jeffersongoncalves/laravel-newsletter/actions?query=workflow%3A%22Fix+PHP+code+style+issues%22+branch%3Amaster)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/jeffersongoncalves/laravel-newsletter/tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/jeffersongoncalves/laravel-newsletter/actions?query=workflow%3ATests+branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/jeffersongoncalves/laravel-newsletter/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/jeffersongoncalves/laravel-newsletter/actions?query=workflow%3A%22Fix+PHP+code+style+issues%22+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/jeffersongoncalves/laravel-newsletter.svg?style=flat-square)](https://packagist.org/packages/jeffersongoncalves/laravel-newsletter)
 [![License](https://img.shields.io/packagist/l/jeffersongoncalves/laravel-newsletter.svg?style=flat-square)](LICENSE.md)
 
