@@ -5,11 +5,13 @@ namespace JeffersonGoncalves\Newsletter\Tests;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use JeffersonGoncalves\Newsletter\NewsletterServiceProvider;
+use JeffersonGoncalves\PestPluginDatabaseMigrations\LoadsPackageMigrations;
 use Orchestra\Testbench\TestCase as Orchestra;
 use Spatie\MediaLibrary\MediaLibraryServiceProvider;
 
 abstract class TestCase extends Orchestra
 {
+    use LoadsPackageMigrations;
     use RefreshDatabase;
 
     protected function setUp(): void
@@ -77,36 +79,9 @@ abstract class TestCase extends Orchestra
         ];
     }
 
-    /**
-     * Same order as NewsletterServiceProvider::hasMigrations(). SQLite
-     * doesn't enforce foreign keys at CREATE TABLE time, but MySQL/Postgres
-     * do, and alphabetical order breaks it here: "email_group_members" and
-     * "newsletter_email_group"/"newsletter_sent_recipients" all sort before
-     * the "email_groups"/"newsletters" tables they reference ('_' < 's').
-     */
-    private const MIGRATION_ORDER = [
-        'create_newsletters_table',
-        'create_email_groups_table',
-        'create_email_group_members_table',
-        'create_newsletter_email_group_table',
-        'create_newsletter_sent_recipients_table',
-    ];
-
     protected function defineDatabaseMigrations(): void
     {
         $this->loadMigrationsFrom(__DIR__.'/database/migrations');
-
-        $stubsPath = __DIR__.'/../database/migrations';
-        $tempPath = sys_get_temp_dir().'/laravel-newsletter-migrations';
-
-        if (! is_dir($tempPath)) {
-            mkdir($tempPath, 0755, true);
-        }
-
-        foreach (self::MIGRATION_ORDER as $index => $name) {
-            copy($stubsPath.'/'.$name.'.php.stub', $tempPath.'/'.sprintf('%03d_%s.php', $index, $name));
-        }
-
-        $this->loadMigrationsFrom($tempPath);
+        $this->loadPackageMigrations(NewsletterServiceProvider::class);
     }
 }

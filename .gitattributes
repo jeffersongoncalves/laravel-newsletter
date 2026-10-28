@@ -22,4 +22,5 @@
 /phpunit.xml.dist export-ignore
 /phpstan.neon.dist export-ignore
 /phpstan-baseline.neon export-ignore
+/testbench.yaml   export-ignore
 CHANGELOG.md      export-ignore
